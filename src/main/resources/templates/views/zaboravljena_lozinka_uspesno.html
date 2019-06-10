@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Greska login</title>
+</head>
+<body>
+
+<div  layout:fragment="content" class="container mySpace">
+    <div>
+
+
+        <div class="alert alert-warning" th:if="${poruka}">
+            <p class="text text-center">
+                <span th:text=" 'Zahtev za reset lozinke je prihvacen.Link za reset je poslat na vas email:  ' + ${email}"></span>
+            </p>
+        </div>
+
+        <div class="alert alert-warning" th:if="${poruka_resetovano}">
+            <p class="text text-center">
+                <span th:text=" 'Postovani  ' + ${korisnik} + '  uspesno ste resetovali lozinku!'"></span>
+            </p>
+            <a href="/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ulogujte se</a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

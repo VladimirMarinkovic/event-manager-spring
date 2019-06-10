@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kreiraj Admina</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registracija.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <br><div class="alert alert-danger" th:if="${postoji}">
+    <p class="text text-center">
+        Vec postoji registrovan korisnik sa unetim e-mailom
+    </p>
+</div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form autocomplete="off" action="#" th:action="@{/kreirajRukovodioca}"
+                  th:object="${rukovodilac}" method="post" class="form-horizontal"
+                  role="form">
+                <h2>Kreiraj Rukovodioca</h2>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label th:if="${#fields.hasErrors('ime')}" th:errors="*{ime}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{ime}" placeholder="Ime"
+                               class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <label	th:if="${#fields.hasErrors('prezime')}" th:errors="*{prezime}"
+                                  class="validation-message"></label>
+                        <input type="text" th:field="*{prezime}"
+                               placeholder="Prezime" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{email}" placeholder="Email"
+                               class="form-control" /> <label
+                            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                            class="validation-message"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="password" th:field="*{password}"
+                               placeholder="Lozinka" class="form-control" /> <label
+                            th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                            class="validation-message"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="password" th:field="*{confirmPassword}"
+                               placeholder="Ponovite Lozinku" class="form-control" /> <label
+                            th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"
+                            class="validation-message"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="tel" th:field="*{telefon}"
+                               placeholder="Unesite br.telefona" class="form-control" /> <label
+                            th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"
+                            class="validation-message"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input placeholder="Datum Rodjenja"  th:field="*{datumRodjenja}" class="form-control"
+                               type="text" onfocusin="(this.type='date')" onfocusout="(this.type='text')"  id="date"><label
+                            th:if="${#fields.hasErrors('datumRodjenja')}" th:errors="*{datumRodjenja}"
+                            class="validation-message"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-primary btn-block">Registruj Rukovodioca</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

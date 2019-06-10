@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Uspesno</title>
+</head>
+<body>
+
+<div  layout:fragment="content" class="container mySpace">
+    <div class="alert alert-success">
+       Registracija uspesna!
+        <span th:text=" 'Link za aktivaciju je poslat na e-mail adresu:' + ${email}"></span>
+
+    </div>
+
+</div>
+</body>
+</html>

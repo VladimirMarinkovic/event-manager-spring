@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Greska login</title>
+</head>
+<body>
+
+<div  layout:fragment="content" class="container mySpace">
+    <div>
+
+
+        <div class="alert alert-warning" th:if="${poruka_reset}">
+            <p class="text text-center">
+                <span th:text=" 'Nepostojeca e-mail adresa:  ' + ${email}"></span>
+            </p>
+        </div>
+
+        <div class="alert alert-warning" th:if="${poruka_reset_potvrda}">
+            <p class="text text-center">
+                <span th:text=" 'Nepostojeci Link!'"></span>
+            </p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

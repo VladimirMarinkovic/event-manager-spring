@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Greska login</title>
+</head>
+<body>
+
+<div  layout:fragment="content" class="container mySpace">
+    <div>
+
+
+        <div class="alert alert-warning" th:if="${neaktivan}">
+            <p class="text text-center">
+                Molimo vas aktivirajte vas nalog!<br>
+                <span th:text=" 'Link za aktivaciju je poslat na e-mail adresu:  ' + ${email}"></span>
+            </p>
+        </div>
+
+        <div class="alert alert-warning" th:if="${poruka_nije_korisnikov}">
+            <p class="text text-center">
+                Vasem nalogu nije dozvoljen pristup!<br>
+                <span th:text="Detaljno mezete pristupiti samo zadacima na kojima ste dodeljeni!"></span>
+            </p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

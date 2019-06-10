@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Zadatak</title>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="../../static/css/materia/bootstrap.min.css"  th:href="@{/css/materia/bootstrap.min.css}" />
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+
+
+
+<div layout:fragment="content" class="container mySpace">
+
+    <div class="jumbotron">
+        <h1>Detalji zadatka</h1>
+        <hr />
+
+    <h1 th:text="${zadatak.naslov}">Naslov</h1>
+        <div><a th:text="${zadatak.korisnik.ime}">Ime</a>  <a th:text="${zadatak.korisnik.prezime}">Prezime</a> </div><hr>
+
+        <div> Datum           :  <a th:text="${zadatak.datum}"></a></div>
+        <div> Vreme pocetka   :  <a th:text="${zadatak.vremePocetka}"></a></div>
+        <div> Vreme zavrsetka :  <a th:text="${zadatak.vremeZavrsetka}"></a></div><hr>
+
+    <h3 th:text="${zadatak.opisZadatka}">Opis</h3>
+    </div>
+
+    <div sec:authorize="hasAuthority('ADMIN')">
+        <div class="row">
+            <a th:href="@{'/izmeni_zadatak/{id}'(id=${zadatak.id})}" class="col-md-2">
+                <button type="button" class="btn btn-primary btn-block" th:text="Izmeni">Izmeni</button>
+            </a>
+
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+</html>
